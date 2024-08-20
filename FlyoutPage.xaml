@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:ObligatorioTaller1"
+            Title="Menú"
+            x:Class="ObligatorioTaller1.FlyoutPage">
+
+    <!-- Define la página del menú (Flyout) -->
+    <FlyoutPage.Flyout>
+        <local:FlyoutMenuPage x:Name="MenuFlyoutPage" />
+    </FlyoutPage.Flyout>
+
+    <!-- Define la página de contenido (Detail) -->
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <local:FlyoutMenuPage x:Name="FlyoutMenuPage" />
+                <!-- Página inicial del contenido -->
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTaller1.SearchPage">
+    <ScrollView>
+        <StackLayout BackgroundColor="Black">
+        <Label Text="Resultados de la búsqueda"
+               TextColor="White"
+               FontSize="24"
+               FontFamily="medium"
+               HorizontalOptions="Start"
+               Margin="20, 20, 20, 20"
+               Padding="10"/>
+
+        <CollectionView x:Name="CollectionSearch" ItemsSource="{Binding BusquedaResultados}"
+                        ItemsUpdatingScrollMode="KeepScrollOffset">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Frame HasShadow="True"
+                               Padding="4"
+                               BorderColor="#1f1d54"
+                               BackgroundColor="Transparent"
+                               CornerRadius="10"
+                               Margin="5"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               HeightRequest="200"  
+                               WidthRequest="150">
+                            <Image Source="{Binding PosterUrl}" 
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.TapCommand, Source={x:Reference CollectionSearch}}" 
+                                            CommandParameter="{Binding .}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                        </Frame>
+                        <Label Text="{Binding title}" 
+                               FontFamily="medium"
+                               FontSize="16"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="10, 20, 10, 0"/>
+
+                        <Label Text="{Binding overview}" 
+                               TextColor="LightGray"
+                               FontFamily="medium"
+                               FontSize="16"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="20, 20, 20, 0"/>
+
+                            <Label  Text="Fecha de lanzamiento:" 
+                               TextColor="LightGray"
+                               FontFamily="medium"
+                               FontSize="16"
+                               HorizontalOptions="Start"                                  
+                               VerticalOptions="End"
+                               Margin="20, 10, 20, 0">                                
+                            </Label>
+
+                        <Label Text="{Binding release_date}" 
+                               TextColor="LightGray"
+                                FontFamily="medium"
+                                FontSize="16"
+                                HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                Margin="20, 0, 20, 30"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

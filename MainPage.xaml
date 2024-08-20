@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTaller1.MainPage">
+    <ScrollView>
+        <StackLayout BackgroundColor="Black" >
+            <Image 
+                       BackgroundColor="Transparent"
+                       HorizontalOptions="Center"
+                       Margin="30, 30, 30, 20"
+                       Source="logo2.png"
+                       HeightRequest="100"
+                       WidthRequest="120">
+            </Image>
+
+            <Frame Padding="0"
+                   CornerRadius="20"
+                   BorderColor="#0e7f99"
+                   BackgroundColor="Transparent"
+                   HasShadow="true"
+                   Margin="20, 10, 20, 10">
+                <SearchBar CancelButtonColor="white"
+                           Placeholder="Buscar películas"
+                           PlaceholderColor="#ac9db9"                       
+                           FontFamily="medium"
+                           FontSize="16"
+                           TextColor="White"
+                           Margin="0"
+                           VerticalOptions="Center"
+                           SearchButtonPressed="OnSearchBarButtonPressed"/>
+            </Frame>
+
+            <!-- Carrusel Populares -->
+            <Label
+                Text="Populares"
+                TextColor="White"
+                FontSize="20"
+                FontFamily="medium"
+                HorizontalOptions="Start"
+                Margin="20, 30, 10, 0"
+                Padding="10"/>
+
+            <CarouselView x:Name="CarruselPopulares" 
+                      Margin="20,15,20,10" 
+                      ItemsSource="{Binding Populares}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HasShadow="True"
+                               Padding="4"
+                               BorderColor="gray"
+                               BackgroundColor="Transparent"
+                               CornerRadius="10"
+                               Margin="5"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               HeightRequest="300"  
+                               WidthRequest="200">
+                                <Image Source="{Binding poster_path}"                                   
+                                   Aspect="AspectFit"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.TapCommand, 
+                                        Source={x:Reference CarruselPopulares}}" CommandParameter="{Binding .}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Frame>
+                            <Label
+                                   Text="{Binding title}"
+                                   TextColor="White"
+                                   FontFamily="medium"
+                                   FontSize="16"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Margin="10"/>
+
+                            <Button Text="❤️"
+                                    BackgroundColor="Transparent"
+                                    FontSize="22"
+                                    Clicked="OnFavoriteButtonClicked"
+                                    CommandParameter="{Binding .}"
+                                    HorizontalOptions="Center"
+                                    BindingContextChanged="OnButtonBindingContextChanged"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <!-- Carrusel Top rated -->
+            <Label
+                Text="Más votadas"
+                TextColor="White"
+                FontSize="20"
+                FontFamily="medium"
+                HorizontalOptions="Start"
+                Margin="20, 30, 10, 0"
+                Padding="10"/>
+
+            <CarouselView x:Name="CarruselTopRated" Margin="20,20,20,10" ItemsSource="{Binding Populares}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HasShadow="True"
+                               BorderColor="LightGray"
+                               BackgroundColor="Transparent"
+                               CornerRadius="10"
+                               Padding="0"
+                               Margin="5"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               HeightRequest="300"  
+                               WidthRequest="200">
+                                <Image Source="{Binding poster_path}"                                   
+                                   Aspect="AspectFit"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.TapCommand, 
+                                        Source={x:Reference CarruselTopRated}}" CommandParameter="{Binding .}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Frame>
+                            <Label 
+                               Text="{Binding title}"
+                               TextColor="White"
+                               FontFamily="medium"
+                               FontSize="16"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="5"/>
+
+                            <Button Text="❤️"
+                                    BackgroundColor="Transparent"
+                                    FontSize="22"
+                                    Clicked="OnFavoriteButtonClicked"
+                                    CommandParameter="{Binding .}"
+                                    HorizontalOptions="Center"
+                                    BindingContextChanged="OnButtonBindingContextChanged"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <!-- Carrusel Upcoming -->
+            <Label
+                Text="Próximamente"
+                TextColor="White"
+                FontSize="20"
+                FontFamily="medium"
+                HorizontalOptions="Start"
+                Margin="20, 30, 10,0"
+                Padding="10"/>
+
+            <CarouselView x:Name="CarruselUpcoming" Margin="20,20,20,10" ItemsSource="{Binding Populares}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HasShadow="True"
+                               BorderColor="LightGray"
+                               BackgroundColor="Transparent"
+                               CornerRadius="10"
+                               Padding="0"
+                               Margin="5"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               HeightRequest="300"  
+                               WidthRequest="200">
+                                <Image Source="{Binding poster_path}"                                   
+                                   Aspect="AspectFit"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.TapCommand, 
+                                           Source={x:Reference CarruselUpcoming}}" CommandParameter="{Binding .}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Frame>
+                            <Label Text="{Binding title}"
+                               TextColor="White"
+                               FontFamily="medium"
+                               FontSize="16"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="5"/>
+
+                            <Button Text="❤️"
+                                    BackgroundColor="Transparent"
+                                    FontSize="22"
+                                    Clicked="OnFavoriteButtonClicked"
+                                    CommandParameter="{Binding .}"
+                                    HorizontalOptions="Center"
+                                    BindingContextChanged="OnButtonBindingContextChanged"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

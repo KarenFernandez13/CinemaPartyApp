@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTaller1.PerfilUsuario">
+    
+    <StackLayout BackgroundColor="Black">
+        <Frame Padding="0"
+               Margin="0, 40, 0, 10"
+               BorderColor="gray"              
+               CornerRadius="20"
+               BackgroundColor="Transparent"
+               HasShadow="true"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">
+            <Image x:Name="FotoPerfil"
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   Aspect="AspectFill" />
+        </Frame>    
+
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="Auto, *" Margin="0, 40, 0, 0" VerticalOptions="Center"
+              HorizontalOptions="Center">
+            <!-- Nombre de usuario -->
+            <Label Text="Nombre: "
+                   Margin="0, 20, 0, 20"
+                   FontFamily="medium"
+                   FontSize="18"
+                   FontAttributes="Italic"
+                   TextColor="WhiteSmoke"
+                   Grid.Column="0"
+                   Grid.Row="0"/>
+
+            <Label x:Name="NameLabel"
+                   Margin="10, 20, 0, 20"
+                   FontFamily="medium"
+                   FontSize="18"
+                   TextColor="WhiteSmoke"
+                   Grid.Column="1"
+                   Grid.Row="0"/>
+
+            <!-- Teléfono -->
+            <Label Margin="0, 20, 0, 20"
+                   Text="Teléfono: "
+                   FontAttributes="Italic"
+                   FontFamily="medium"
+                   FontSize="18"
+                   TextColor="WhiteSmoke"
+                   Grid.Column="0"
+                   Grid.Row="1"/>
+
+            <Label x:Name="TelephoneLabel"                   
+                   FontFamily="medium"
+                   Margin="10, 20, 0, 20"
+                   FontSize="18"
+                   TextColor="WhiteSmoke"
+                   Grid.Column="1"
+                   Grid.Row="1"/>
+
+            <!-- E-mail -->
+            <Label Text="E-mail: "
+                   Margin="0, 20, 0, 20"
+                   FontAttributes="Italic"
+                   FontFamily="medium"
+                   FontSize="18"
+                   TextColor="WhiteSmoke"
+                   Grid.Column="0"
+                   Grid.Row="2"/>
+
+            <Label x:Name="MailLabel"
+                   Margin="10, 20, 0, 20"
+                   FontFamily="medium"
+                   FontSize="16"
+                   TextColor="WhiteSmoke"
+                   Grid.Column="1"
+                   Grid.Row="2"/>
+
+            <!-- Contraseña -->
+            <Label Text="Password: "
+                   Margin="0, 20, 0, 20"
+                   FontFamily="medium"
+                   FontAttributes="Italic"
+                   FontSize="18"
+                   TextColor="WhiteSmoke"
+                   Grid.Column="0"
+                   Grid.Row="3"/>
+
+            <Label x:Name="PasswordLabel"
+                   Margin="10, 20, 0, 20"
+                   FontFamily="medium"
+                   FontSize="18"
+                   TextColor="WhiteSmoke"
+                   Grid.Column="1"
+                   Grid.Row="3"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

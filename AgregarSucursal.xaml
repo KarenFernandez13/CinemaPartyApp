@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTaller1.AgregarSucursal">
+
+    <StackLayout Padding="40" BackgroundColor="#0D0118">
+        <Label Text="Agregar nueva sucursal"
+            FontAttributes="Bold"
+            FontSize="Large"
+            HorizontalOptions="Center" 
+            TextColor="White" 
+               Margin="0,10,0,20"/>
+
+
+        <Entry x:Name="NameEntry"
+            Placeholder="Nombre"
+            PlaceholderColor="#ac9db9"
+            Margin="0,20,0,10"
+               TextColor="White"/>
+
+        <Entry x:Name="AddressEntry"
+            Placeholder="Direccion"
+                PlaceholderColor="#ac9db9"
+            Margin="0,20,0,10"
+               TextColor="White"/>
+
+        <Entry x:Name="PhoneEntry"
+            Placeholder="Telefono"
+                PlaceholderColor="#ac9db9"
+            Keyboard="Numeric"
+            Margin="0,20,0,10"
+               TextColor="White"
+        />
+        <Entry x:Name="HoraAperturaEntry"
+            Placeholder="Horario apertura"
+                PlaceholderColor="#ac9db9"
+            Keyboard="Numeric"
+            Margin="0,20,0,10"
+               TextColor="White"
+        />
+        <Entry x:Name="HoraCierreEntry"
+            Placeholder="Horario cierre"
+            PlaceholderColor="#ac9db9"
+            Keyboard="Numeric"
+            Margin="0,20,0,10"
+            TextColor="White"
+        />
+
+        <Button Text="Crear"
+             Clicked="ButtonCreate_Clicked"
+             Margin="0,30,0,0"
+                BackgroundColor="#4F3F9B"
+                TextColor="#FBF6FD"
+                HeightRequest="50"
+                WidthRequest="150"/>
+    </StackLayout>
+</ContentPage>

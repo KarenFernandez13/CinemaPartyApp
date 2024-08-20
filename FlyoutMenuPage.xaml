@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Menú"
+             x:Class="ObligatorioTaller1.FlyoutMenuPage">
+    <StackLayout BackgroundColor="#2C3E50" Padding="10">
+
+        <!-- Logo o título del menú -->
+        <Image Source="logo2.png"
+               HorizontalOptions="Start"
+               VerticalOptions="Start"
+               HeightRequest="100"
+               WidthRequest="120"
+               Aspect="AspectFit"
+               Margin="0,20,0,30" />
+
+        <!-- ListView para los elementos del menú -->
+        <ListView x:Name="MenuListView"
+                  ItemsSource="{Binding FlyoutMenuItems}"
+                  VerticalOptions="FillAndExpand"
+                  SeparatorVisibility="None"
+                  BackgroundColor="#34495E">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10" Spacing="10">
+                            <Image Source="{Binding IconSource}" WidthRequest="50" HeightRequest="40" />
+                            <Label Text="{Binding Title}"
+                                   FontSize="18"
+                                   FontFamily="medium"
+                                   TextColor="Whitesmoke"
+                                   VerticalOptions="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
